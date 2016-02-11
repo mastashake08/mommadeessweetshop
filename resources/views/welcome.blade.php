@@ -6,8 +6,39 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Welcome to Momma Dees Sweet Shop! Organic loving goodness delivered right to your door!
+    Order our peanut butter no bake $10 for a tin deal, have it at your door NEXT DAY!">
+    <meta name="author" content="Jyrone Parker">
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "Product",
+  "name": "Peanut Butter No Bake Cookies $10 For A Tin",
+  "image": "https://mommadeessweetshop.com/theme/img/header.jpg",
+  "description": "No bake peanut butter cookies make organically with love! All orders include next day shipping! Perfect for parties and cozy nights.",
+  "sku": "ten-for-a-tin",
+  "brand": {
+    "@type": "Thing",
+    "name": "Momma Dees Sweets"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.4",
+    "reviewCount": "89"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "price": "10.00",
+    "availability": "http://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "Momma Dees Sweet Shop"
+    }
+  }
+}
+</script>
 
     <title>Momma Dees Sweet Shop</title>
 
