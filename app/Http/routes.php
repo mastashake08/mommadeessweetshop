@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('charge' ,'ChargeController@charge');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes

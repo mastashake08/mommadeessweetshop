@@ -40,6 +40,20 @@
 }
 </script>
 
+<!-- jQuery -->
+<script src="theme/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="theme/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="theme/js/jquery.easing.min.js"></script>
+<script src="theme/js/jquery.fittext.js"></script>
+<script src="theme/js/wow.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="theme/js/creative.js"></script>
+
     <title>Momma Dees Sweet Shop</title>
 
     <!-- Bootstrap Core CSS -->
@@ -120,20 +134,72 @@
                     <h2 class="section-heading">I've got what you need!</h2>
                     <hr class="light">
                     <p class="text-faded">Order a $10 for a tin deal and have the delicious no-bake cookies delivered to your door!</p>
-                    <form action="/charge" method="POST">
-                      <script
-                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                        data-key="pk_test_QgdJSyRF8v7QJVM4mudy99XN"
-                        data-image="theme/img/header.jpg"
-                        data-name="Momma Dees Sweet Shop"
-                        data-description="$10 For A Tin"
-                        data-amount="1000"
-                        data-locale="auto"
-                        data-bitcoin="true"
-                        data-panel-label="Place Your Order Now!"
-                        data-shipping-address="true">
-                      </script>
-                    </form>
+
+
+                    <script src="https://checkout.stripe.com/checkout.js"></script>
+
+<button class="btn btn-lg btn-success" id="customButton">Buy some NOW!</button>
+
+<script>
+
+
+  $('#customButton').on('click', function(e) {
+    // Open Checkout with further options
+    var ans = prompt('How many tins would you like to buy?');
+    if(ans >=1)
+    {
+    var handler = StripeCheckout.configure({
+      key: "{{env('STRIPE_KEY')}}",
+      image: 'theme/img/header.jpg',
+      locale: 'auto',
+      shippingAddress: true,
+      token: function(token) {
+        // Use the token to create the charge with a server-side script.
+        // You can access the token ID with `token.id`
+        if(token.card.address_line2 != null){
+        var data ={
+          quantity: ans,
+          stripeToken: token.id,
+          name:token.card.name,
+          email: token.email,
+          address: token.card.address_line1 + ' ' + token.card.address_line2 + ' ' + token.card.address_city + ' ' + token.card.address_state + ' ' + token.card.address_zip
+        };
+        $.post("/charge",data, function(data, status){
+       alert(data);
+   });
+      }
+      else{
+        var data ={
+          quantity: ans,
+          stripeToken: token.id,
+          name:token.card.name,
+          email: token.email,
+          address: token.card.address_line1  + ' ' + token.card.address_city + ' ' + token.card.address_state + ' ' + token.card.address_zip
+        };
+        $.post("/charge",data, function(data, status){
+       alert(data);
+   });
+      }
+        console.log(data);
+      }
+    });
+    handler.open({
+      name: 'Momma Dees Sweet Shop',
+      description: ans + ' $10 For A Tin',
+      amount: 1000 * ans
+    });
+  }
+  else {
+    alert('MUST BUY AT LEAST 1 TIN!');
+  }
+    e.preventDefault();
+  });
+
+  // Close Checkout on page navigation
+  $(window).on('popstate', function() {
+    handler.close();
+  });
+</script>
                 </div>
             </div>
         </div>
@@ -301,19 +367,7 @@
         </div>
     </section>
 
-    <!-- jQuery -->
-    <script src="theme/js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="theme/js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="theme/js/jquery.easing.min.js"></script>
-    <script src="theme/js/jquery.fittext.js"></script>
-    <script src="theme/js/wow.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="theme/js/creative.js"></script>
 
 </body>
 
