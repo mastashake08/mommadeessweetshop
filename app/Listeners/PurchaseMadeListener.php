@@ -30,7 +30,7 @@ class PurchaseMadeListener
     public function handle(PurchaseMade $event)
     {
         //
-        $text = "New order placed by {$event->name}, they ordered {$event->quantity} tins, to be shipped to {$event->address}";
+        $text = "THIS IS A TEST!!!!!! New order placed by {$event->name}, they ordered {$event->quantity} tins, to be shipped to {$event->address}";
         $this->mailer->raw($text, function ($message) {
     //
     $message->from('orders@mommadeessweetshop.com', 'Momma Dees Sweet Shop');
