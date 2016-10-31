@@ -14,7 +14,7 @@
 {
   "@context": "http://schema.org/",
   "@type": "Product",
-  "name": "Peanut Butter No Bake Cookies $10 For A Tin",
+  "name": "Peanut Butter No Bake Cookies 18 Count",
   "image": "https://mommadeessweetshop.com/theme/img/header.jpg",
   "description": "No bake peanut butter cookies make organically with love! All orders include next day shipping! Perfect for parties and cozy nights.",
   "sku": "ten-for-a-tin",
@@ -133,7 +133,7 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">I've got what you need!</h2>
                     <hr class="light">
-                    <p class="text-faded">Order a $10 for a tin deal and have the delicious no-bake cookies delivered to your door!</p>
+                    <p class="text-faded">Order a 18 count tin deal and have the delicious no-bake cookies delivered to your door!</p>
 
 
                     <script src="https://checkout.stripe.com/checkout.js"></script>
