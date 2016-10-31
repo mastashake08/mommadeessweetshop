@@ -18,10 +18,10 @@ class ChargeController extends Controller
       // Create the charge on Stripe's servers - this will charge the user's card
       try {
         $charge = \Stripe\Charge::create(array(
-          "amount" => 1000 * $request->quantity, // amount in cents, again
+          "amount" => 3998 * $request->quantity, // amount in cents, again
           "currency" => "usd",
           "source" => $request->stripeToken,
-          "description" => "Momma Dees $10 For A Tin No Bake Cookies"
+          "description" => "Momma Dees 18 count No Bake Cookies"
           ));
           $order = Order::Create([
             'name' => $request->name,

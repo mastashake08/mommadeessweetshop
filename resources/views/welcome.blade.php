@@ -185,8 +185,8 @@
     });
     handler.open({
       name: 'Momma Dees Sweet Shop',
-      description: ans + ' $10 For A Tin',
-      amount: 1000 * ans
+      description: ans + ' 18 count No Bake Cookies',
+      amount: 3998 * ans
     });
   }
   else {
@@ -220,7 +220,7 @@
                     <div class="service-box">
                         <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
                         <h3>Organic Goodness</h3>
-                        <p class="text-muted">My cookies are always made with the freshest ingridients.</p>
+                        <p class="text-muted">My cookies are always made with the freshest ingredients.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
